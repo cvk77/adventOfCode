@@ -1,6 +1,7 @@
 import Test.Hspec
-import GiftWrap (paperNeeded, mapOverData, sumMaybe)
+import GiftWrap (paperNeeded, ribbonNeeded, mapOverData, sumMaybe)
 
+main :: IO()
 main = hspec $ do
     describe "paperNeeded" $ do
         it "should return 58 for 2x3x4" $ do
@@ -19,3 +20,9 @@ main = hspec $ do
             sumMaybe [Just 2, Just 3, Just 0] `shouldBe` (Just 5)
         it "should return Nothing if there is a Nothing" $ do
             sumMaybe [Just 2, Nothing, Just 0] `shouldBe` Nothing
+
+    describe "ribbonNeeded" $ do
+        it "should return 34 for 2x3x4" $ do
+            ribbonNeeded 2 3 4 `shouldBe` 34
+        it "should return 14 for 1x1x10" $ do
+            ribbonNeeded 1 1 10 `shouldBe` 14
