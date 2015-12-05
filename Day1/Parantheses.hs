@@ -1,11 +1,19 @@
 module Parantheses where
 
-countParantheses :: [Char] -> Int
-countParantheses = foldr f 0
-    where f '(' = (+1)
-          f ')' = subtract 1
-          f _   = id
+import Data.List (elemIndex)
+
+delta :: Num a => [Char] -> a
+delta = foldl f 0
+
+steps :: Num a => [Char] -> [a]
+steps = scanl f 0
+
+f :: Num a => a -> Char -> a
+f n '(' = n + 1
+f n ')' = n - 1
+f n _   = n
 
 main = do
     s <- readFile "data.txt"
-    print $ countParantheses s
+    print $ delta s
+    print $ elemIndex (-1) (steps s)
