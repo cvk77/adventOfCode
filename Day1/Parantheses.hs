@@ -13,6 +13,7 @@ f n '(' = n + 1
 f n ')' = n - 1
 f n _   = n
 
+main :: IO ()
 main = do
     s <- readFile "data.txt"
     print $ delta s

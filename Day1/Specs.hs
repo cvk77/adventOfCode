@@ -1,6 +1,7 @@
 import Test.Hspec
 import Parantheses (delta, steps)
 
+main :: IO ()
 main = hspec $ do
     describe "delta" $ do
         it "should return 0 for (())" $ do
