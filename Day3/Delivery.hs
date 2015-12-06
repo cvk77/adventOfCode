@@ -16,9 +16,21 @@ walk = f (0, 0)
         step acc@(x:_) a = move a x : acc
 
 housesVisited :: String -> Int
-housesVisited = length . nub . walk
+housesVisited = uniqueLength . walk
+
+housesVisited' :: String -> Int
+housesVisited' directions = uniqueLength . concatMap walk $ split directions
+    where
+        split xs = [odds xs, evens xs]
+        odds (x:xs) = x : evens xs
+        odds _      = []
+        evens xs = odds (drop 1 xs)
+
+uniqueLength :: Eq a => [a] -> Int
+uniqueLength = length . nub
 
 main :: IO ()
 main = do
     s <- readFile "data.txt"
     print $ housesVisited s
+    print $ housesVisited' s
