@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 import Test.Hspec
 import NiceStrings (threeVowels, hasDoubles, noForbidden, isNice)
 
