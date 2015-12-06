@@ -1,6 +1,7 @@
 module NiceStrings where
 
-import Data.List (group, isInfixOf)
+import Data.List (group, isInfixOf, tails)
+import Data.List.Split (splitOn)
 
 -- It contains at least three vowels (aeiou only), like aei, xazegov, or aeiouaeiouaeiou.
 threeVowels :: String -> Bool
@@ -17,7 +18,26 @@ noForbidden s = all (not . (`isInfixOf` s)) ["ab", "cd", "pq", "xy"]
 isNice :: String -> Bool
 isNice s = all ($ s) [threeVowels, hasDoubles, noForbidden]
 
+-- It contains a pair of any two letters that appears at least twice in the string without overlapping, like xyxy (xy) or aabcdefgaa (aa), but not like aaa (aa, but it overlaps).
+twoPairs :: String -> Bool
+twoPairs word = any (\ pair -> length (splitOn pair word) >= 3) candidates
+    where candidates = windowed 2 word
+
+windowed :: Int -> [a] -> [[a]]
+windowed x = foldr (zipWith (:)) (repeat []) . take x . tails
+
+-- It contains at least one letter which repeats with exactly one letter between them, like xyx, abcdefeghi (efe), or even aaa.
+triplet :: String -> Bool
+triplet (x:y:z:xs)
+         | x == z = True
+         | otherwise = triplet (y:z:xs)
+triplet _ = False
+
+isNice' :: String -> Bool
+isNice' s = all ($ s) [twoPairs, triplet]
+
 main :: IO()
 main = do
     s <- readFile "data.txt"
-    print $ length . filter id . map isNice . lines $ s
+    print $ length . filter id . map isNice  . lines $ s
+    print $ length . filter id . map isNice' . lines $ s
