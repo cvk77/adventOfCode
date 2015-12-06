@@ -1,6 +1,9 @@
 import Test.Hspec
 import Delivery (housesVisited, housesVisited')
 
+{-# ANN module "HLint: ignore Redundant do" #-}
+
+main :: IO ()
 main = hspec $ do
     describe "housesVisited" $ do
         it "should return 2 for >" $ do

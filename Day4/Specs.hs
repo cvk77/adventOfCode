@@ -3,6 +3,9 @@
 import Test.Hspec
 import AdventCoins (mine)
 
+{-# ANN module ("HLint: ignore Redundant do" :: String) #-}
+
+main :: IO ()
 main = hspec $ do
     describe "adventCoins" $ do
         it "If your secret key is abcdef, the answer is 609043" $ do

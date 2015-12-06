@@ -1,6 +1,8 @@
 import Test.Hspec
 import Parantheses (delta, steps)
 
+{-# ANN module "HLint: ignore Redundant do" #-}
+
 main :: IO ()
 main = hspec $ do
     describe "delta" $ do

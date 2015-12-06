@@ -1,6 +1,9 @@
 import Test.Hspec
 import NiceStrings (threeVowels, hasDoubles, noForbidden, isNice)
 
+{-# ANN module "HLint: ignore Redundant do" #-}
+
+main :: IO ()
 main = hspec $ do
     describe "threeVowels" $ do
         it "works for aei" $ do

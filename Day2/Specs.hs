@@ -1,7 +1,9 @@
 import Test.Hspec
 import GiftWrap (paperNeeded, ribbonNeeded, mapOverData, sumMaybe)
 
-main :: IO()
+{-# ANN module "HLint: ignore Redundant do" #-}
+
+main :: IO ()
 main = hspec $ do
     describe "paperNeeded" $ do
         it "should return 58 for 2x3x4" $ do
