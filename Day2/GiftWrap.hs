@@ -4,8 +4,6 @@ import Data.List (sort)
 import Data.List.Split (splitOn)
 import Control.Monad (foldM)
 
-data Box = Box Int Int Int
-
 paperNeeded :: Int -> Int -> Int -> Int
 paperNeeded l w h = 2*l*w + 2*w*h + 2*h*l + slack
     where slack = product $ shortestSide [l, w, h]
