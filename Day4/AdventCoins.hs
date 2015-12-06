@@ -8,7 +8,7 @@ import qualified Data.ByteString.Char8 as B
 import Data.List (find)
 
 mine :: Int -> ByteString -> Maybe Int
-mine len s = find (\i -> isCoin len (candidate i)) [1..]
+mine len s = find (isCoin len . candidate) [1..]
     where
         candidate n = s `B.append` B.pack (show n)
 
@@ -16,7 +16,7 @@ isCoin :: Int -> ByteString -> Bool
 isCoin len s = prefix `B.isPrefixOf` digest
     where
         prefix = B.replicate len '0'
-        digest = digestToHexByteString $ (hash s :: (Digest MD5))
+        digest = digestToHexByteString (hash s :: (Digest MD5))
 
 main :: IO ()
 main = do
