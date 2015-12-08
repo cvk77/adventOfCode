@@ -6,6 +6,7 @@ module Parsers (
 ) where
 
 import Text.ParserCombinators.Parsec
+import Data.Functor ((<$>), (<$))
 
 data CommandExpression = TurnOn | TurnOff | Toggle deriving (Show, Eq)
 data Coordinates = Coordinates Int Int deriving (Show, Eq)
