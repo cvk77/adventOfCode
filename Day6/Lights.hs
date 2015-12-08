@@ -14,9 +14,9 @@ execute grid (Command ex a b) =
     mapM_ (apply grid ex) (a `to` b)
 
 apply :: Grid -> CommandExpression -> (Int, Int) -> IO ()
-apply grid TurnOn c = writeArray grid c True
+apply grid TurnOn  c = writeArray grid c True
 apply grid TurnOff c = writeArray grid c False
-apply grid Toggle c = readArray grid c >>= \x -> writeArray grid c (not x)
+apply grid Toggle  c = readArray grid c >>= \x -> writeArray grid c (not x)
 
 to :: (Int, Int) -> (Int, Int) -> [(Int,Int)]
 (x1,y1) `to` (x2,y2) = [ (x,y) | x <- [x1..x2], y <- [y1..y2] ]
