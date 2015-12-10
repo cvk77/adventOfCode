@@ -1,4 +1,4 @@
-module NiceStrings where
+module Day5.NiceStrings where
 
 import Data.List (group, isInfixOf, tails)
 import Data.List.Split (splitOn)

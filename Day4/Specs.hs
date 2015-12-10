@@ -1,7 +1,9 @@
 {-# LANGUAGE OverloadedStrings #-}
 
+module Day4.Specs where
+
 import Test.Hspec
-import AdventCoins (mine)
+import Day4.AdventCoins (mine)
 
 {-# ANN module ("HLint: ignore Redundant do" :: String) #-}
 

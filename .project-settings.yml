@@ -11,9 +11,4 @@ cabal-file: project.cabal
 version: 1
 extra-packages: ''
 ghc-args: []
-excluded-modules:
-- Day1/Specs.hs
-- Day2/Specs.hs
-- Day3/Specs.hs
-- Day4/Specs.hs
-- Day5/Specs.hs
+excluded-modules: []

@@ -1,5 +1,7 @@
+module Day3.Specs where
+
 import Test.Hspec
-import Delivery (housesVisited, housesVisited')
+import Day3.Delivery (housesVisited, housesVisited')
 
 {-# ANN module "HLint: ignore Redundant do" #-}
 

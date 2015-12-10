@@ -1,4 +1,4 @@
-module Parsers (
+module Day6.Parsers (
     CommandExpression (..),
     Command (..),
     parseInstruction

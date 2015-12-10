@@ -1,4 +1,4 @@
-module Delivery where
+module Day3.Delivery where
 
 import Data.List (nub)
 

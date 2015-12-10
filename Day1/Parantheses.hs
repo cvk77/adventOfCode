@@ -1,4 +1,4 @@
-module Parantheses where
+module Day1.Parantheses where
 
 import Data.List (elemIndex)
 

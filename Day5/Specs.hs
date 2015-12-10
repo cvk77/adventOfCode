@@ -1,5 +1,7 @@
+module Day5.Specs where
+
 import Test.Hspec
-import NiceStrings (threeVowels, hasDoubles, noForbidden, isNice, isNice')
+import Day5.NiceStrings (threeVowels, hasDoubles, noForbidden, isNice, isNice')
 
 {-# ANN module "HLint: ignore Redundant do" #-}
 

@@ -1,6 +1,7 @@
-import Test.Hspec
+module Day6.Specs where
 
-import Parsers
+import Test.Hspec
+import Day6.Parsers
 
 {-# ANN module "HLint: ignore Redundant do" #-}
 

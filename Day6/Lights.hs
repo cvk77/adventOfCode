@@ -1,10 +1,10 @@
 {-# LANGUAGE FlexibleContexts #-}
 
-module Lights where
+module Day6.Lights where
 
 import Data.Array.IO
 import Data.Maybe (mapMaybe)
-import Parsers
+import Day6.Parsers
 
 type Grid a = IOArray (Int, Int) a
 
