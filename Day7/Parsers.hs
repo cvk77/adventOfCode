@@ -3,7 +3,7 @@ module Day7.Parsers where
 import Data.Word (Word16)
 import Data.Char (isDigit)
 
-data Input = Wire String | Value Value deriving (Eq, Show)
+data Input = Wire Wire | Value Value deriving (Eq, Show)
 data Command = Store  Input
              | Not    Input
              | Or     Input Input
@@ -13,6 +13,7 @@ data Command = Store  Input
              deriving (Eq, Show)
 
 type Value = Word16
+type Wire = String
 
 parse :: String -> (String, Command)
 parse s = f $ words s
