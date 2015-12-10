@@ -29,3 +29,7 @@ main :: IO ()
 main = do
     s <- readFile "Day7/data.txt"
     print $ resolve (load $ lines s) "a"
+    print $ resolve (foo $ load $ lines s) "a"
+
+    where
+        foo c = Map.insert "b" (Store $ Value (resolve c "a")) c
