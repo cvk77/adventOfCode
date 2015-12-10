@@ -1,7 +1,7 @@
 module Day7.Specs where
 
 import Test.Hspec
-import Day7.Parsers 
+import Day7.Parsers
 import Day7.Wires (Circuit, load, resolve)
 import qualified Data.HashMap.Strict as H
 
@@ -47,7 +47,7 @@ main = hspec $ do
 
     describe "load" $ do
         it "should load the demo circuit correctly" $ do
-            demoCircuit `shouldBe` H.fromList 
+            demoCircuit `shouldBe` H.fromList
                 [
                     ("x", Store (Value 123)),            -- 123 -> x
                     ("y", Store (Value 456)),            -- 456 -> y

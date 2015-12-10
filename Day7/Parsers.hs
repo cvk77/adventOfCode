@@ -3,7 +3,7 @@ module Day7.Parsers where
 import Data.Word (Word16)
 import Data.Char (isDigit)
 
-data Input = Name String | Value Value deriving (Eq, Show)
+data Input = Wire String | Value Value deriving (Eq, Show)
 data Command = Store  Input
              | Not    Input
              | Or     Input Input
@@ -16,7 +16,7 @@ type Value = Word16
 
 parse :: String -> (String, Command)
 parse s = f $ words s
-    where 
+    where
         f [a,              "->", x] = (x, Store  (toInput a))
         f [   "NOT",    b, "->", x] = (x, Not    (toInput b))
         f [a, "OR",     b, "->", x] = (x, Or     (toInput a) (toInput b))
@@ -26,7 +26,6 @@ parse s = f $ words s
         f _ = error "No parse"
 
         toInput :: String -> Input
-        toInput x = if (all isDigit x) 
-                    then Value $ read x
-                    else Name x
-
+        toInput x = if all isDigit x
+                    then Value (read x)
+                    else Wire  x
