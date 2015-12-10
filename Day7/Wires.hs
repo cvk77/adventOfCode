@@ -8,9 +8,9 @@ import Day7.Parsers
 type Circuit = Map.Map String Command
 
 resolve :: Circuit -> String -> Value
-resolve cmd = f'
+resolve circuit = f'
     where
-        f s = case cmd Map.! s of
+        f s = case circuit Map.! s of
             (Store x)      -> get x
             (Not x)        -> complement $ get x
             (x `And` y )   -> get x .&. get y
