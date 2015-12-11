@@ -1,12 +1,6 @@
 module Day8.DigitalList where
 
-import Control.Monad (liftM2, ap)
-
-testStrings = [ "\"\""
-              , "\"abc\""
-              , "\"aaa\\\"aaa\""
-              , "\"\\x27\""
-              ]
+import Control.Monad (liftM2)
 
 codeLength :: String -> Int
 codeLength = length
@@ -20,9 +14,12 @@ memoryLength = f 0
         f acc (_:xs)            = f (acc+1) xs
         f acc []                = acc
 
+encodedLength :: String -> Int
+encodedLength = length . show
+
 main :: IO ()
 main = do
     s <- readFile "Day8/data.txt"
     ls <- return $ lines s
     print $ sum $ map (liftM2 (-) codeLength memoryLength) ls
-    print $ sum $ map (ap ((-) . length . show) length)    ls
+    print $ sum $ map (liftM2 (-) encodedLength codeLength) ls
