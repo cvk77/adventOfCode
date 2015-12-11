@@ -4,17 +4,23 @@ import Day9.Parsers
 import Data.List
 import qualified Data.Map as Map
 
-testData = [ "London to Dublin = 464"
-           , "London to Belfast = 518"
-           , "Dublin to Belfast = 141"
-           ]
+type Routes = Map.Map (String, String) Integer
 
-routes :: [String] -> [Route]
-routes = map parse
+distance :: Routes -> [String] -> Integer
+distance ds xs = sum $ map (ds Map.!) (zip xs (tail xs))
 
-possibleRoutes :: [Route] -> [[String]]
-possibleRoutes = permutations . nub . map fst . Map.keys . Map.fromList
+routes :: Routes -> [[String]]
+routes = permutations . nub . map fst . Map.keys
+
+distances :: [String] -> Routes
+distances xs = Map.fromList $ concatMap parse xs
 
 main :: IO ()
 main = do
-    print $ possibleRoutes $ routes testData
+    s <- readFile "Day9/data.txt"
+    ds <- return $ distances (lines s)
+    rs <- return $ routes ds
+    xs <- return $ map (distance ds) rs
+
+    print $ minimum $ xs
+    print $ maximum $ xs

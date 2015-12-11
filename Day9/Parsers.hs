@@ -1,9 +1,7 @@
 module Day9.Parsers where
 
-type Route = ((String, String), Int)
-
-parse :: String -> Route
+parse :: String ->  [((String, String), Integer)]
 parse = f . words
     where
-        f [a, "to", b, "=", d] = ((a, b), read d)
+        f [a, "to", b, "=", d] = [((a, b), (read d)), ((b, a), (read d))]
         f _ = error "No parse"
