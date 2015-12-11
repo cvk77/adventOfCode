@@ -1,7 +1,7 @@
-module Day2.Specs where
+module Day02.Specs where
 
 import Test.Hspec
-import Day2.GiftWrap (paperNeeded, ribbonNeeded, mapOverData, sumMaybe)
+import Day02.GiftWrap (paperNeeded, ribbonNeeded, mapOverData, sumMaybe)
 
 {-# ANN module "HLint: ignore Redundant do" #-}
 

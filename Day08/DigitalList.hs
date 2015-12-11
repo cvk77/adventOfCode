@@ -1,4 +1,4 @@
-module Day8.DigitalList where
+module Day08.DigitalList where
 
 import Control.Monad (liftM2)
 
@@ -19,7 +19,7 @@ encodedLength = length . show
 
 main :: IO ()
 main = do
-    s <- readFile "Day8/data.txt"
+    s <- readFile "Day08/data.txt"
     ls <- return $ lines s
     print $ sum $ map (liftM2 (-) codeLength memoryLength) ls
     print $ sum $ map (liftM2 (-) encodedLength codeLength) ls

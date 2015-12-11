@@ -1,10 +1,10 @@
 {-# LANGUAGE FlexibleContexts #-}
 
-module Day6.Lights where
+module Day06.Lights where
 
 import Data.Array.IO
 import Data.Maybe (mapMaybe)
-import Day6.Parsers
+import Day06.Parsers
 
 type Grid a = IOArray (Int, Int) a
 
@@ -33,7 +33,7 @@ instructions = mapMaybe parseInstruction
 
 main :: IO ()
 main = do
-    s <- readFile "data.txt"
+    s <- readFile "Day06/data.txt"
     grid <- createGrid 999 999 False
     mapM_ (execute grid apply) (instructions (lines s))
     elems <- getElems grid

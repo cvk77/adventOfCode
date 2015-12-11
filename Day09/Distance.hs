@@ -1,6 +1,6 @@
-module Day9.Distance where
+module Day09.Distance where
 
-import Day9.Parsers
+import Day09.Parsers
 import Data.List
 import qualified Data.Map as Map
 
@@ -17,10 +17,10 @@ distances = Map.fromList . (>>= parse )
 
 main :: IO ()
 main = do
-    s <- readFile "Day9/data.txt"
-    ds <- return $ distances (lines s)
-    rs <- return $ routes ds
-    xs <- return $ map (distance ds) rs
+    s <- readFile "Day09/data.txt"
+    let ds = distances (lines s)
+    let rs = routes ds
+    let xs = map (distance ds) rs
 
-    print $ minimum $ xs
-    print $ maximum $ xs
+    print $ minimum xs
+    print $ maximum xs

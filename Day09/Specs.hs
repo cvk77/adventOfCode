@@ -1,8 +1,8 @@
-module Day9.Specs where
+module Day09.Specs where
 
 import Test.Hspec
-import Day9.Parsers
-import Day9.Distance (distances, routes, distance)
+import Day09.Parsers
+import Day09.Distance (distances, routes, distance)
 import qualified Data.Map as Map
 
 {-# ANN module "HLint: ignore Redundant do" #-}
@@ -19,8 +19,8 @@ main = hspec $ do
             parse "Erkelenz to Berlin = 650" `shouldBe` [(("Erkelenz", "Berlin"), 650), (("Berlin", "Erkelenz"), 650)]
 
     describe "distances" $ do
-        ds <- return $ distances testData
-        rs <- return $ routes ds
+        let ds = distances testData
+        let rs = routes ds
         it "should correctly parse the inputs" $ do
             ds `shouldBe` Map.fromList  [
                 (("Belfast","Dublin"),141),(("Belfast","London"),518),

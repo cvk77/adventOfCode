@@ -1,11 +1,11 @@
-module Day1.Parantheses where
+module Day01.Parantheses where
 
 import Data.List (elemIndex)
 
-delta :: Num a => [Char] -> a
+delta :: String -> Integer
 delta = foldl f 0
 
-steps :: Num a => [Char] -> [a]
+steps :: String -> [Integer]
 steps = scanl f 0
 
 f :: Num a => a -> Char -> a
@@ -15,6 +15,6 @@ f n _   = n
 
 main :: IO ()
 main = do
-    s <- readFile "data.txt"
+    s <- readFile "Day01/data.txt"
     print $ delta s
     print $ elemIndex (-1) (steps s)

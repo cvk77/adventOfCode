@@ -1,4 +1,4 @@
-module Day5.NiceStrings where
+module Day05.NiceStrings where
 
 import Data.List (group, isInfixOf, tails)
 import Data.List.Split (splitOn)
@@ -38,6 +38,6 @@ isNice' s = all ($ s) [twoPairs, triplet]
 
 main :: IO()
 main = do
-    s <- readFile "data.txt"
+    s <- readFile "Day05/data.txt"
     print $ length . filter id . map isNice  . lines $ s
     print $ length . filter id . map isNice' . lines $ s

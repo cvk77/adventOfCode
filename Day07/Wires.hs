@@ -1,9 +1,9 @@
-module Day7.Wires where
+module Day07.Wires where
 
 import Data.Bits
 import Data.Function.Memoize (memoize)
 import qualified Data.Map as Map
-import Day7.Parsers
+import Day07.Parsers
 
 type Circuit = Map.Map String Command
 
@@ -27,7 +27,7 @@ load s = Map.fromList $ map parse s
 
 main :: IO ()
 main = do
-    s <- readFile "Day7/data.txt"
+    s <- readFile "Day07/data.txt"
     print $ resolve (load $ lines s) "a"
     print $ resolve (foo $ load $ lines s) "a"
 

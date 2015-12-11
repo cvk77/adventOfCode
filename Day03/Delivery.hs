@@ -1,4 +1,4 @@
-module Day3.Delivery where
+module Day03.Delivery where
 
 import Data.List (nub)
 
@@ -31,6 +31,6 @@ uniqueLength = length . nub
 
 main :: IO ()
 main = do
-    s <- readFile "data.txt"
+    s <- readFile "Day03/data.txt"
     print $ housesVisited s
     print $ housesVisited' s

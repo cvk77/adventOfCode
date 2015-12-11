@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-module Day4.AdventCoins where
+module Day04.AdventCoins where
 
 import Crypto.Hash (Digest, MD5, hash, digestToHexByteString)
 import Data.ByteString (ByteString)

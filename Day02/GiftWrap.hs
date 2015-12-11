@@ -1,4 +1,4 @@
-module Day2.GiftWrap where
+module Day02.GiftWrap where
 
 import Data.List (sort)
 import Data.List.Split (splitOn)
@@ -29,6 +29,6 @@ sumMaybe = foldM (fmap . (+)) 0
 
 main :: IO ()
 main = do
-    s <- readFile "data.txt"
+    s <- readFile "Day02/data.txt"
     print $ sumMaybe $ mapOverData paperNeeded $ lines s
     print $ sumMaybe $ mapOverData ribbonNeeded $ lines s

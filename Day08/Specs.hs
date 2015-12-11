@@ -1,7 +1,7 @@
-module Day8.Specs where
+module Day08.Specs where
 
 import Test.Hspec
-import Day8.DigitalList
+import Day08.DigitalList (codeLength, memoryLength, encodedLength)
 
 {-# ANN module "HLint: ignore Redundant do" #-}
 
@@ -46,4 +46,3 @@ main = hspec $ do
             encodedLength "\"\\x27\"" `shouldBe` 11
         it "should calculate the encoded length of \"\\x27\" correctly" $ do
             encodedLength "\"\\x27\"" `shouldBe` 11
-           

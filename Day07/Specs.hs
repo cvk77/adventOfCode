@@ -1,8 +1,8 @@
-module Day7.Specs where
+module Day07.Specs where
 
 import Test.Hspec
-import Day7.Parsers
-import Day7.Wires (Circuit, load, resolve)
+import Day07.Parsers
+import Day07.Wires (Circuit, load, resolve)
 import qualified Data.Map as Map
 
 {-# ANN module "HLint: ignore Redundant do" #-}

@@ -1,7 +1,7 @@
-module Day5.Specs where
+module Day05.Specs where
 
 import Test.Hspec
-import Day5.NiceStrings (isNice, isNice')
+import Day05.NiceStrings (isNice, isNice')
 
 {-# ANN module "HLint: ignore Redundant do" #-}
 
