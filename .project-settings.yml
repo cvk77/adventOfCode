@@ -11,4 +11,7 @@ cabal-file: project.cabal
 version: 1
 extra-packages: ''
 ghc-args: []
-excluded-modules: []
+excluded-modules:
+- Day7/Parsers.hs
+- Day7/Specs.hs
+- Day7/Wires.hs
