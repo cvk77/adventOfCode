@@ -13,7 +13,7 @@ routes :: Routes -> [[String]]
 routes = permutations . nub . map fst . Map.keys
 
 distances :: [String] -> Routes
-distances xs = Map.fromList $ concatMap parse xs
+distances = Map.fromList . (>>= parse )
 
 main :: IO ()
 main = do
