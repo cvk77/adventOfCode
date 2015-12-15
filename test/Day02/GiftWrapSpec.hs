@@ -1,12 +1,12 @@
-module Day02.Specs where
+module Day02.GiftWrapSpec (spec) where
 
 import Test.Hspec
 import Day02.GiftWrap (paperNeeded, ribbonNeeded, mapOverData, sumMaybe)
 
 {-# ANN module "HLint: ignore Redundant do" #-}
 
-main :: IO ()
-main = hspec $ do
+spec :: Spec
+spec = do
     describe "paperNeeded" $ do
         it "should return 58 for 2x3x4" $ do
             paperNeeded 2 3 4 `shouldBe` 58

@@ -1,7 +1,6 @@
-module Day09.Specs where
+module Day09.DistanceSpec (spec) where
 
 import Test.Hspec
-import Day09.Parsers
 import Day09.Distance (distances, routes, distance)
 import qualified Data.Map as Map
 
@@ -12,12 +11,8 @@ testData = [ "London to Dublin = 464"
            , "Dublin to Belfast = 141"
            ]
 
-main :: IO ()
-main = hspec $ do
-    describe "parse" $ do
-        it "should parse \"Erkelenz to Berlin = 650\"" $ do
-            parse "Erkelenz to Berlin = 650" `shouldBe` [(("Erkelenz", "Berlin"), 650), (("Berlin", "Erkelenz"), 650)]
-
+spec :: Spec
+spec = do
     describe "distances" $ do
         let ds = distances testData
         let rs = routes ds

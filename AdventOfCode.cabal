@@ -1,0 +1,52 @@
+name:                AdventOfCode
+version:             0.1.0.0
+synopsis:            Haskell Solutions for Advent of Code 2015
+description:         Please see README.md
+homepage:            https://github.com/cvk77/adventOfCode/
+license:             Public Domain
+author:              Christoph von Krüchten
+maintainer:          christoph@vonkruechten.de
+copyright:           2015 Christoph von Krüchten
+build-type:          Simple
+cabal-version:       >=1.10
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     Day01.Parantheses
+                     , Day02.GiftWrap
+                     , Day03.Delivery
+                     , Day04.AdventCoins
+                     , Day05.NiceStrings
+                     , Day06.Lights
+                     , Day06.Parsers
+                     , Day07.Wires
+                     , Day07.Parsers
+                     , Day08.DigitalList
+                     , Day09.Distance
+                     , Day09.Parsers
+                     , Day10.LookAndSay
+  build-depends:       base             >= 4.7 && < 5
+                     , parsec           >= 3.1
+                     , split            >= 0.2
+                     , cryptohash       >= 0.11
+                     , bytestring       >= 0.10
+                     , array            >= 0.5
+                     , containers       >= 0.5
+                     , memoize          >= 0.7
+  default-language:    Haskell2010
+
+test-suite AdventOfCode-test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Spec.hs
+  build-depends:       base
+                     , AdventOfCode
+                     , hspec-discover   >= 2.1
+                     , hspec            >= 2.1
+                     , containers       >= 0.5
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  default-language:    Haskell2010
+
+source-repository head
+  type:     git
+  location: git@github.com:cvk77/adventOfCode.git

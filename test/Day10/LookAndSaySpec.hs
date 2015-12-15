@@ -1,12 +1,12 @@
-module Day10.Specs where
+module Day10.LookAndSaySpec (spec) where
 
 import Test.Hspec
 import Day10.LookAndSay (lookAndSay, nthLength)
 
 {-# ANN module "HLint: ignore Redundant do" #-}
 
-main :: IO ()
-main = hspec $ do
+spec :: Spec
+spec = do
     describe "lookAndSay" $ do
         it "creates the first 10 numbers correctly" $ do
             take 10 (iterate lookAndSay "1") `shouldBe` ["1","11","21","1211","111221","312211","13112221","1113213211","31131211131221","13211311123113112211"]

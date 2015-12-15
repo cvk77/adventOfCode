@@ -1,4 +1,4 @@
-module Day08.Specs where
+module Day08.DigitalListSpec (spec) where
 
 import Test.Hspec
 import Day08.DigitalList (codeLength, memoryLength, encodedLength)
@@ -11,8 +11,8 @@ testStrings = [ "\"\""
               , "\"\\x27\""
               ]
 
-main :: IO ()
-main = hspec $ do
+spec :: Spec
+spec = do
     describe "codeLength" $ do
         it "should calculate the code length of \"\" correctly" $ do
             codeLength "\"\"" `shouldBe` 2

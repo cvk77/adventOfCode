@@ -1,4 +1,4 @@
-module Day07.Specs where
+module Day07.WiresSpec (spec) where
 
 import Test.Hspec
 import Day07.Parsers
@@ -17,8 +17,8 @@ demoCircuit = load [ "123 -> x",
                 "NOT x -> h",
                 "NOT y -> i" ]
 
-main :: IO ()
-main = hspec $ do
+spec :: Spec
+spec = do
     describe "parse" $ do
         it "should parse Store with value input" $ do
             parse "47 -> x" `shouldBe` ("x", Store (Value 47))

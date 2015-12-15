@@ -1,12 +1,12 @@
-module Day01.Specs where
+module Day01.ParanthesesSpec where
 
 import Test.Hspec
 import Day01.Parantheses (delta, steps)
 
 {-# ANN module "HLint: ignore Redundant do" #-}
 
-main :: IO ()
-main = hspec $ do
+spec :: Spec
+spec = do
     describe "delta" $ do
         it "should return 0 for (())" $ do
             delta "(())" `shouldBe` 0

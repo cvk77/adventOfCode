@@ -1,12 +1,12 @@
-module Day03.Specs where
+module Day03.DeliverySpec (spec) where
 
 import Test.Hspec
 import Day03.Delivery (housesVisited, housesVisited')
 
 {-# ANN module "HLint: ignore Redundant do" #-}
 
-main :: IO ()
-main = hspec $ do
+spec :: Spec
+spec = do
     describe "housesVisited" $ do
         it "should return 2 for >" $ do
             housesVisited ">" `shouldBe` 2

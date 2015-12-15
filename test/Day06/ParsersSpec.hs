@@ -1,12 +1,12 @@
-module Day06.Specs where
+module Day06.ParsersSpec (spec) where
 
 import Test.Hspec
 import Day06.Parsers
 
 {-# ANN module "HLint: ignore Redundant do" #-}
 
-main :: IO ()
-main = hspec $ do
+spec :: Spec
+spec = do
     describe "parseInstruction" $ do
         it "should parse 'turn on 0,0 through 999,999' correctly" $ do
             parseInstruction "turn on 0,0 through 999,999" `shouldBe`

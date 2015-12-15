@@ -1,12 +1,12 @@
-module Day05.Specs where
+module Day05.NiceStringsSpec (spec) where
 
 import Test.Hspec
 import Day05.NiceStrings (isNice, isNice')
 
 {-# ANN module "HLint: ignore Redundant do" #-}
 
-main :: IO ()
-main = hspec $ do
+spec :: Spec
+spec = do
     describe "isNice" $ do
         it "works for ugknbfddgicrmopn" $ do
             isNice "ugknbfddgicrmopn" `shouldBe` True
