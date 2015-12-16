@@ -16,7 +16,7 @@ isValid :: String -> Bool
 isValid cs = hasStraight cs && hasPair cs && noForbidden cs
     
 hasStraight :: String -> Bool
-hasStraight cs = any f (tails cs)
+hasStraight = any f . tails
     where f (a:b:c:_) = succ a == b && succ b == c
           f _         = False
 
@@ -24,7 +24,7 @@ noForbidden :: String -> Bool
 noForbidden cs = 'i' `notElem` cs && 'o' `notElem` cs && 'l' `notElem` cs
 
 hasPair :: String -> Bool
-hasPair cs = f $ filter f (group cs)
+hasPair = f . filter f . group
     where f = (>1) . length
     
 main :: IO ()
