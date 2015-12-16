@@ -4,17 +4,25 @@ import Data.List (groupBy)
 import Data.Char (isDigit)
 import Data.Maybe (catMaybes)
 
-findNumbers :: String -> [Int]
-findNumbers xs = catMaybes $ map maybeRead $ groupBy f xs
-    where 
-        f a b = all (`elem` "0123456789-") [a,b]
+sumNumbers :: String -> Int -> Int
+sumNumbers [] acc = acc
+sumNumbers xs acc = sumNumbers rest (acc + n)
+    where
+        (n, rest) = (parseNumber . skip) xs
 
-maybeRead :: String -> Maybe Int
-maybeRead s = case reads s of
-    [(x, "")] -> Just x
-    _         -> Nothing
+parseNumber :: String -> (Int, String)
+parseNumber "" = (0, "")
+parseNumber xs = (read n, rest)
+    where 
+        (n, rest) = span isNumeric xs
+
+skip :: String -> String
+skip = dropWhile (not . isNumeric)
+
+isNumeric :: Char -> Bool
+isNumeric x = x == '-' || isDigit x
 
 main :: IO ()
 main = do
     s <- readFile "src/Day12/data.txt"
-    print $ sum $ findNumbers s
+    print $ sumNumbers s 0
