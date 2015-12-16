@@ -8,4 +8,6 @@ version: 1
 ghc-args: []
 excluded-modules:
 - Setup.hs
+- src/Day07/Wires.hs
+- test/Day07/WiresSpec.hs
 - test/Spec.hs
