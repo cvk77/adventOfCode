@@ -39,6 +39,6 @@ spec = do
 
     describe "nextPassword" $ do
         it "should find abcdffaa after abcdefgh" $ do
-            nextPassword "abcdefgh" `shouldBe` "abcdffaa"
+            head (nextPassword "abcdefgh") `shouldBe` "abcdffaa"
         it "should find ghjaabcc after ghijklmn" $ do
-            nextPassword "ghijklmn" `shouldBe` "ghjaabcc"
+            head (nextPassword "ghijklmn") `shouldBe` "ghjaabcc"

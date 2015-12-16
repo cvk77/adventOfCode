@@ -2,8 +2,8 @@ module Day11.Passwords where
 
 import Data.List (tails, group)
 
-nextPassword :: String -> String
-nextPassword cs = head $ filter isValid $ drop 1 $ iterate nextCandidate cs
+nextPassword :: String -> [String]
+nextPassword cs = filter isValid $ drop 1 $ iterate nextCandidate cs
 
 nextCandidate :: String -> String
 nextCandidate = reverse . f .  reverse
@@ -29,5 +29,4 @@ hasPair cs = f $ filter f (group cs)
     
 main :: IO ()
 main = do
-    print $ nextPassword "cqjxjnds"
-    print $ nextPassword "cqjxxyzz"
+    print $ take 2 $ nextPassword "cqjxjnds"
