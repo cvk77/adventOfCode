@@ -1,7 +1,7 @@
 module Day07.Wires where
 
 import Data.Bits
-import Data.Function.Memoize (memoize)
+-- import Data.Function.Memoize (memoize)
 import qualified Data.Map as Map
 import Day07.Parsers
 
@@ -17,7 +17,7 @@ resolve circuit = f'
             (x `Or` y)     -> get x .|. get y
             (x `LShift` y) -> get x `shiftL` fromIntegral (get y)
             (x `RShift` y) -> get x `shiftR` fromIntegral (get y)
-        f' = memoize f
+        f' = f
 
         get (Wire w)  = f' w
         get (Value v) = v

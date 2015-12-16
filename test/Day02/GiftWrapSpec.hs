@@ -21,7 +21,7 @@ spec = do
 
     describe "sumMaybe" $ do
         it "should sum the Justs in a list" $ do
-            sumMaybe [Just 2, Just 3, Just 0] `shouldBe` (Just 5)
+            sumMaybe [Just 2, Just 3, Just 0] `shouldBe` Just 5
         it "should return Nothing if there is a Nothing" $ do
             sumMaybe [Just 2, Nothing, Just 0] `shouldBe` Nothing
 

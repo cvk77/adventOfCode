@@ -20,6 +20,6 @@ encodedLength = length . show
 main :: IO ()
 main = do
     s <- readFile "Day08/data.txt"
-    ls <- return $ lines s
+    let ls = lines s
     print $ sum $ map (liftM2 (-) codeLength memoryLength) ls
     print $ sum $ map (liftM2 (-) encodedLength codeLength) ls
