@@ -15,6 +15,6 @@ f n _   = n
 
 main :: IO ()
 main = do
-    s <- readFile "Day01/data.txt"
+    s <- readFile "src/Day01/data.txt"
     print $ delta s
     print $ elemIndex (-1) (steps s)

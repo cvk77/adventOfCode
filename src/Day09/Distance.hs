@@ -17,7 +17,7 @@ distances = Map.fromList . (>>= parse )
 
 main :: IO ()
 main = do
-    s <- readFile "Day09/data.txt"
+    s <- readFile "src/Day09/data.txt"
     let ds = distances (lines s)
     let rs = routes ds
     let xs = map (distance ds) rs

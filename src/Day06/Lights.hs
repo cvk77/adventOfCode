@@ -33,7 +33,7 @@ instructions = mapMaybe parseInstruction
 
 main :: IO ()
 main = do
-    s <- readFile "Day06/data.txt"
+    s <- readFile "src/Day06/data.txt"
     grid <- createGrid 999 999 False
     mapM_ (execute grid apply) (instructions (lines s))
     elems <- getElems grid

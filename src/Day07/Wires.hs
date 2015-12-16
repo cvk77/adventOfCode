@@ -27,7 +27,7 @@ load s = Map.fromList $ map parse s
 
 main :: IO ()
 main = do
-    s <- readFile "Day07/data.txt"
+    s <- readFile "src/Day07/data.txt"
     print $ resolve (load $ lines s) "a"
     print $ resolve (foo $ load $ lines s) "a"
 

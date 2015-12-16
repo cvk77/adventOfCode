@@ -31,6 +31,6 @@ uniqueLength = length . nub
 
 main :: IO ()
 main = do
-    s <- readFile "Day03/data.txt"
+    s <- readFile "src/Day03/data.txt"
     print $ housesVisited s
     print $ housesVisited' s
