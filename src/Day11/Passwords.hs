@@ -3,7 +3,7 @@ module Day11.Passwords where
 import Data.List (tails, group)
 
 nextPassword :: String -> [String]
-nextPassword cs = filter isValid $ drop 1 $ iterate nextCandidate cs
+nextPassword = filter isValid . drop 1 . iterate nextCandidate
 
 nextCandidate :: String -> String
 nextCandidate = reverse . f .  reverse
