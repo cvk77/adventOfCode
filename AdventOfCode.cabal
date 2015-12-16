@@ -25,6 +25,7 @@ library
                      , Day09.Distance
                      , Day09.Parsers
                      , Day10.LookAndSay
+                     , Day11.Passwords
   build-depends:       base             >= 4.7 && < 5
                      , parsec           >= 3.1
                      , split            >= 0.2
