@@ -14,5 +14,5 @@ findNumbers xs = catMaybes $ map maybeRead $ groupBy f xs
 
 main :: IO ()
 main = do
-    s <- readFile "src/Day12/data.txt"
+    s <- readFile "Day12/data.txt"
     print $ sum $ findNumbers s
