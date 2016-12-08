@@ -3,7 +3,7 @@ version:             0.1.0.0
 synopsis:            Haskell Solutions for Advent of Code 2015
 description:         Please see README.md
 homepage:            https://github.com/cvk77/adventOfCode/
-license:             Public Domain
+license:             PublicDomain
 author:              Christoph von Krüchten
 maintainer:          christoph@vonkruechten.de
 copyright:           2015 Christoph von Krüchten
