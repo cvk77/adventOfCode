@@ -1,4 +1,4 @@
-module Day02.BathroomSecurity where
+module Day02.BathroomSecurity (puzzle1, puzzle2) where
 
 import Prelude hiding (Left, Right)
 import Data.Maybe (mapMaybe)
@@ -35,6 +35,24 @@ keypad1 =
         ,('9', ('6', '9', '9', '8'))
         ]
 
+keypad2 :: Keypad
+keypad2 = 
+    Map.fromList 
+        [('1', ('1', '1', '3', '1'))
+        ,('2', ('2', '3', '6', '2'))
+        ,('3', ('1', '4', '7', '2'))
+        ,('4', ('4', '4', '8', '3'))
+        ,('5', ('5', '6', '5', '5'))
+        ,('6', ('2', '7', 'A', '5'))
+        ,('7', ('3', '8', 'B', '6'))
+        ,('8', ('4', '9', 'C', '7'))
+        ,('9', ('9', '9', '9', '8'))
+        ,('A', ('6', 'B', 'A', 'A'))
+        ,('B', ('7', 'C', 'D', 'A'))
+        ,('C', ('8', 'C', 'C', 'B'))
+        ,('D', ('B', 'D', 'D', 'D'))
+        ]
+
 step :: Keypad -> Char -> Command -> Char
 step kp n = nextKey
     where 
@@ -47,11 +65,19 @@ step kp n = nextKey
 follow :: Keypad -> Char -> [Command] -> Char
 follow kp = foldl (step kp) 
 
-puzzle1 cs pos = 
-    tail $ scanl (follow keypad1) pos (map parseLine cs)
+puzzle :: Keypad -> [String] -> Char -> String
+puzzle kp cs pos = 
+    tail $ scanl (follow kp) pos (map parseLine cs)
+
+puzzle1 :: [String] -> Char -> String
+puzzle1 = puzzle keypad1
+
+puzzle2 :: [String] -> Char -> String
+puzzle2 = puzzle keypad2 
 
 main :: IO()
 main = do
     s <- readFile "src/Day02/data.txt"
     print $ puzzle1 (lines s) '5'
+    print $ puzzle2 (lines s) '5'
     
