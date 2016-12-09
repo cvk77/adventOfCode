@@ -75,13 +75,15 @@ follow cs state = foldl (flip move) state cs
 manhattanDistance :: Position -> Int
 manhattanDistance (x, y) = abs x + abs y
 
-puzzle1 :: String -> Int
-puzzle1 s = manhattanDistance 
-          $ head 
-          $ history 
-          $ follow (parseAll s) initialState
+puzzle1 :: String -> State -> Int
+puzzle1 instructions =
+    follow (parseAll instructions) 
+    >>> history 
+    >>> head 
+    >>> manhattanDistance 
 
 main :: IO ()
 main = do
     s <- readFile "src/Day01/data.txt"
-    print $ puzzle1 s
+    print $ puzzle1 s initialState
+
