@@ -84,8 +84,4 @@ puzzle1 s = manhattanDistance
 main :: IO ()
 main = do
     s <- readFile "src/Day01/data.txt"
-    let instructions = parseAll s
-    print $ manhattanDistance 
-          $ head 
-          $ history 
-          $ follow instructions initialState
+    print $ puzzle1 s
