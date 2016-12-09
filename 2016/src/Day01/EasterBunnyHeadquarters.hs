@@ -1,10 +1,11 @@
-module Day01.EasterBunnyHeadquarters (puzzle1) where
+module Day01.EasterBunnyHeadquarters (puzzle1, puzzle2) where
 
 import Data.Maybe (mapMaybe)
 import Control.Arrow ((>>>))
 import Prelude hiding (Left, Right)
 import Data.List.Split (splitOn)
 import Enum.Bounded (predB, succB)
+import qualified Data.Set as Set
 
 data Direction = Left | Right deriving (Show)
 data Bearing = North | East | South | West deriving (Show, Enum, Bounded, Eq)
@@ -75,15 +76,33 @@ follow cs state = foldl (flip move) state cs
 manhattanDistance :: Position -> Int
 manhattanDistance (x, y) = abs x + abs y
 
-puzzle1 :: String -> State -> Int
+dup :: Ord a => [a] -> Maybe a
+dup xs = dup' xs Set.empty
+  where dup' [] _ = Nothing
+        dup' (x:xs) s = if Set.member x s 
+                           then Just x
+                           else dup' xs (Set.insert x s)
+
+
+puzzle1 :: String -> Int
 puzzle1 instructions =
-    follow (parseAll instructions) 
+    follow (parseAll instructions)  
     >>> history 
     >>> head 
-    >>> manhattanDistance 
+    >>> manhattanDistance
+    $ initialState
+
+puzzle2 :: String -> Maybe Int
+puzzle2 instructions =
+    follow (parseAll instructions)
+    >>> history
+    >>> reverse >>> dup 
+    >>> fmap manhattanDistance
+    $ initialState
+     
 
 main :: IO ()
 main = do
     s <- readFile "src/Day01/data.txt"
-    print $ puzzle1 s initialState
-
+    print $ puzzle1 s 
+    print $ puzzle2 s 
