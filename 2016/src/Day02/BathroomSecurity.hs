@@ -80,4 +80,3 @@ main = do
     s <- readFile "src/Day02/data.txt"
     print $ puzzle1 (lines s) '5'
     print $ puzzle2 (lines s) '5'
-    
