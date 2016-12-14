@@ -1,4 +1,4 @@
-module Day04.RoomNames (Room(..), parseRoom, checkSectorId, decodeName) where
+module Day04.RoomNames (Room(..), puzzle1, puzzle2) where
 
 import Data.List
 import Data.Ord
@@ -52,12 +52,6 @@ encryptedNameParser = do
     cs <- char '[' *> many1 letter <* char ']'
     return $ Room n s cs
 
-parseRoom :: String -> Maybe Room
-parseRoom = toMaybe . parse encryptedNameParser ""
-
-checkRoom :: String -> Maybe Room 
-checkRoom = parseRoom >=> checkSectorId
-
 rot :: Int -> String -> String
 rot n = map (shift n)
     where
@@ -67,15 +61,18 @@ rot n = map (shift n)
         ord' c = ord c - ord 'a'
         chr' n = chr (ord 'a' + n)
 
-decodeName :: Room -> Maybe Room
-decodeName (Room n sId cs) =
-    return $ Room (rot sId n) sId cs
+checkRoom :: String -> Maybe Room 
+checkRoom = parseRoom >=> checkSectorId
+    where
+        parseRoom = toMaybe . parse encryptedNameParser ""
 
 puzzle1 :: String -> Maybe Int
 puzzle1 = checkRoom >=> sectorId >>> return
 
 puzzle2 :: String -> Maybe Room
-puzzle2 = checkRoom >=> decodeName 
+puzzle2 = checkRoom >=> decodeName
+    where 
+        decodeName (Room n sId cs) = return $ Room (rot sId n) sId cs
 
 main :: IO ()
 main = do
@@ -83,5 +80,4 @@ main = do
     let rs = lines s
     print $ sum $ mapMaybe puzzle1 rs
     print $ filter (\room -> roomName room == "northpole object storage") $ mapMaybe puzzle2 rs
-
 
